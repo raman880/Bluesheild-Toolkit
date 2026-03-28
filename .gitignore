@@ -1,0 +1,45 @@
+# Logs
+*.log
+logs/
+/var/log/
+
+# Elasticsearch data
+/var/lib/elasticsearch/
+
+# Grafana data
+grafana.db
+/var/lib/grafana/
+
+# OSQuery data
+/var/osquery/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Backup files
+*.bak
+*.backup
+
+# Compiled files
+*.pyc
+__pycache__/
+
+# Environment files
+.env
+.env.local
+
+
+

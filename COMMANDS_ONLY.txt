@@ -1,0 +1,71 @@
+# VM में Project चलाने के Commands
+
+# Step 1: Project folder में जाएं
+cd "/home/kali/BLUESHIELD TOOLKIT"
+
+# Step 2: Permissions set करें
+chmod +x install.sh vm_setup.sh scripts/*.sh attacks/*.sh
+
+# Step 3: VM setup run करें
+sudo ./vm_setup.sh
+
+# Step 4: Installation run करें
+sudo ./install.sh
+
+# Step 5: Services start करें
+sudo ./scripts/start_blueshield.sh
+
+# Step 6: Status check करें
+./scripts/status_blueshield.sh
+
+# Step 7: Kibana setup करें
+./scripts/setup_kibana_index.sh
+
+# Step 8: Browser में खोलें
+firefox http://localhost:5601
+
+# ============================================
+# Daily Use Commands
+# ============================================
+
+# Services start
+sudo ./scripts/start_blueshield.sh
+
+# Services stop
+sudo ./scripts/stop_blueshield.sh
+
+# Status check
+./scripts/status_blueshield.sh
+
+# Attack simulations
+sudo ./attacks/simulate_port_scan.sh
+sudo ./attacks/simulate_sql_injection.sh http://localhost:8080 /login
+sudo ./attacks/simulate_brute_force.sh 127.0.0.1 22 10
+
+# ============================================
+# Check Commands
+# ============================================
+
+# Network interface
+ip addr show
+
+# VM IP address
+hostname -I
+
+# Elasticsearch check
+curl http://localhost:9200
+
+# Elasticsearch indices
+curl http://localhost:9200/_cat/indices?v
+
+# Service status
+systemctl status elasticsearch
+systemctl status kibana
+systemctl status filebeat
+
+# Logs देखें
+tail -f /var/log/suricata/fast.log
+tail -f /var/log/zeek/current/conn.log
+
+
+
